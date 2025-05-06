@@ -15,7 +15,12 @@ const app = express();
 dotenv.config();
 
 // middlewares
-app.use(cors());
+app.use(cors({
+  origin: "https://saleemsultani-my-react-app-deploy.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
+}));
+
 app.use(express.json());
 app.use(morgan("dev"));
 // app.use(express.static(path.join(__dirname, "./client/build")));
